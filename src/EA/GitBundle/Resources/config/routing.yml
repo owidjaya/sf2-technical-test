@@ -1,0 +1,6 @@
+ea_git_homepage:
+    pattern:  /
+    defaults: { _controller: EAGitBundle:Default:index }
+ea_git_repos:
+    pattern: /repos/{user}
+    defaults: { _controller: EAGitBundle:GitResource:index }

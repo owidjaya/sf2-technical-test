@@ -40,4 +40,10 @@ https://api.github.com/users/USER_NAME/repos
 * Update the README file to include the time you spent and anything else you wish to convey.
 * Send the link to your forked GitHub project to your recruiter.
 
+### OSCAR UPDATE
+* The time spent is  ~ 3 hours 
+* I've setup jasmine to live in the web/vendor/lib/jasmine directory and also i've setup the testIndex.html under GitBundle/Resoures/public/view/tests/testIndex.html for the test runner.
+* for server side code, just run phpunit -c app/
+* I use twitter bootstrap to style the pages
+
 *Good luck!**

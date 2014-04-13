@@ -1,0 +1,50 @@
+{% extends  "::base.html.twig" %}
+
+{% block body %}
+	<div class="container">
+        <section>
+	        <div>
+	            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+	            	<a href="{{ path('fos_user_profile_edit') }}">
+	                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} 
+	                </a> 
+	                |
+	            	<a href="{{ path('fos_user_security_logout') }}">
+	                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }} 
+	                </a> |
+	                <a href='/'>Go in<span class='glyphicon glyphicon-chevron-right'></span></a>
+	            {% else %}
+	                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a> |
+	                <a href="{{ path('fos_user_registration_register') }}">
+	                    {{ 'layout.register'|trans({}, 'FOSUserBundle') }}
+	                </a>|
+	                <!--|
+	                <a href="{{ path('fos_user_resetting_request') }}">
+	                	Reset Password
+	                </a>-->
+	                
+	            {% endif %}
+	        </div>
+
+	        {% for type, messages in app.session.flashbag.all() %}
+	            {% for message in messages %}
+	                <div class="flash-{{ type }}">
+	                    {{ message }}
+	                </div>
+	            {% endfor %}
+	        {% endfor %}
+		    <img src='https://raw.githubusercontent.com/github/media/master/logos/github_logo_social_coding_outlined.png'>
+		    <h2 class='form-signin-header'>Repo Browser</h2>
+        	{% block fos_user_content %}
+        	{% endblock %}
+        </section>
+    </div>
+{% endblock %}
+{% block stylesheets %}
+<style>
+	.container section{
+		margin: 0 auto;
+		max-width:330px;
+	}	
+</style>
+{% endblock %}
