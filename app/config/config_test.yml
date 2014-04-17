@@ -18,5 +18,6 @@ swiftmailer:
 security:
     firewalls:
         secured_area:
+            pattern: ^/
             http_basic: 
-                provider: fos_userbundle
+                provider: in_memory
